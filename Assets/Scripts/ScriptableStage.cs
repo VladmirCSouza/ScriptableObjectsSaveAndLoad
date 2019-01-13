@@ -9,7 +9,10 @@ public class ScriptableStage : ScriptableObject
 
     public void SetMatrixValue(int col, int row, int value = 0)
     {
-        Debug.Log(col + " " + row + " " + value);
-        stageMatrix.rows[row].cols[col] = value;
+        if (stageMatrix.cols == null)
+            stageMatrix = new MatrixLayout();
+        if (stageMatrix.cols[row] == null)
+            stageMatrix.cols[row] = new Col();
+        stageMatrix.cols[col].rows[row] = value;
     }
 }

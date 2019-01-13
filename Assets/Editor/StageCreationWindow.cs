@@ -18,6 +18,8 @@ public class StageCreation : EditorWindow {
     private string stageName = "New Stage";
     private string filePath = "Assets/Stages/";
 
+    private bool usePreviousSetup;
+
     [MenuItem("Window/Create Stage")]
     public static void ShowWindow()
     {
@@ -58,8 +60,11 @@ public class StageCreation : EditorWindow {
     private void OnGUI()
     {        
         //Stage name
-        EditorGUILayout.LabelField("New Stage Name", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField("New Stage Creator", EditorStyles.boldLabel);
         stageName = EditorGUILayout.TextField("Stage name: ", stageName);
+        EditorGUILayout.Space();
+
+        usePreviousSetup =  GUILayout.Toggle(usePreviousSetup, "Use previous stage setup?");
         EditorGUILayout.Space();
 
         //Stage matrix
@@ -67,6 +72,7 @@ public class StageCreation : EditorWindow {
         DrawInspector();
         EditorGUILayout.Space();
 
+        EditorGUILayout.BeginHorizontal();
         //Save button
         GUIContent saveButton = new GUIContent("Create Stage");
         if (GUILayout.Button(saveButton))
@@ -79,6 +85,14 @@ public class StageCreation : EditorWindow {
 
             SaveAsset();
         }
+        //Clear button
+        GUIContent clearButton = new GUIContent("Clear Stage");
+        if (GUILayout.Button(clearButton))
+        {
+            ClearWindowMatrixAndName();
+        }
+
+        EditorGUILayout.EndHorizontal();
     }
 
     private void DrawInspector()
@@ -106,7 +120,7 @@ public class StageCreation : EditorWindow {
                         break;
                 }
 
-                if (GUILayout.Button(btn,GUIStyle.none, buttonLayoutOptions))
+                if (GUILayout.Button(btn, GUIStyle.none, buttonLayoutOptions))
                 {
                     blockValue++;
                     if (blockValue > 3)
@@ -144,5 +158,21 @@ public class StageCreation : EditorWindow {
         {
             AssetDatabase.CreateAsset(newStage, fullPath);
         }
+
+        if(!usePreviousSetup)
+            ClearWindowMatrixAndName();
+    }
+
+    private void ClearWindowMatrixAndName()
+    {
+        for (int i = 0; i < stageHeight; i++)
+        {
+            for (int j = 0; j < stateWidth; j++)
+            {
+                stage[i, j] = 0;
+            }
+        }
+
+        stageName = "New Stage Name";
     }
 }

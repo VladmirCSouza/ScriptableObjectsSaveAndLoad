@@ -1,11 +1,11 @@
 ﻿[System.Serializable]
 public class Col
 {
-    public int[] cols = new int[13];
+    public int[] rows = new int[13];
 }
 
 [System.Serializable]
 public class MatrixLayout
 {
-    public Col[] rows = new Col[13];
+    public Col[] cols = new Col[13];
 }

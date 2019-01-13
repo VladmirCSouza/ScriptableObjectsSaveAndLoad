@@ -43,11 +43,11 @@ public class ScriptableStageInspectorDraw : Editor {
 
     private void DrawInspector()
     {
-        SerializedProperty row = serializedObject.FindProperty("stageMatrix").FindPropertyRelative("rows");
+        SerializedProperty col = serializedObject.FindProperty("stageMatrix").FindPropertyRelative("cols");
 
-        for (int i = 0; i < row.arraySize; i++)
+        for (int i = 0; i < col.arraySize; i++)
         {
-            SerializedProperty col = row.GetArrayElementAtIndex(i).FindPropertyRelative("cols");
+            SerializedProperty row = col.GetArrayElementAtIndex(i).FindPropertyRelative("rows");
 
             if (col.arraySize != row.arraySize)
                 col.arraySize = row.arraySize;
@@ -56,10 +56,10 @@ public class ScriptableStageInspectorDraw : Editor {
             ScriptableStage obj = (ScriptableStage)target;
 
             EditorGUILayout.BeginHorizontal();
-            for (int j = 0; j < col.arraySize; j++)
+            for (int j = 0; j < row.arraySize; j++)
             {
                 GUIContent btn;
-                int value = col.GetArrayElementAtIndex(j).intValue;
+                int value = row.GetArrayElementAtIndex(j).intValue;
                 switch (value)
                 {
                     case 1:
@@ -81,7 +81,7 @@ public class ScriptableStageInspectorDraw : Editor {
                     value++;
                     if (value > 3)
                         value = 0;
-                    obj.SetMatrixValue(j, i, value);
+                    obj.SetMatrixValue(i, j, value);
                 }
             }
             EditorGUILayout.EndHorizontal();
