@@ -1,0 +1,129 @@
+*configs.xml
+*size.xml
+*.error
+*.swf
+*.sublime*
+*.prefs
+*.as3proj
+*.docproj
+*.temp
+*~
+*.lxml
+.~lock*
+.svn/
+.settings/
+dist/
+obj/
+bin/
+logs/
+_includes/
+nbproject/
+*.stamp
+nb-configuration.xml
+nbbuild.xml
+nbactions.xml
+catalog.xml
+manifest.mf
+*.ignore
+*.orig
+*.iml
+
+dev/unity/.idea/
+
+# Compiled source #
+###################
+*.class
+*.exe
+*.o
+*.apk
+*.ipa
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Build and Release Folders
+target/
+launch/
+
+# data backup files
+/data/dump_local.bat
+
+# Project property files
+.settings
+.project
+.actionScriptProperties
+.flexConfig.xml
+.flexLibProperties
+.flexProperties
+.rebel
+.classpath
+encodings.txt
+
+# Unity3D and VS extensions #
+#############################
+*.unityproj
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.vs
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.unitypackage
+
+# Unity3D log generated files
+log_*.txt
+ProjectVersion.txt
+
+#Project ignore specific files
+Assembly-CSharp*
+
+# Unity3D automatic folders #
+#############################
+
+#main project
+/dev/unity/main/.vs
+/dev/unity/main/[Ll]ibrary/
+/dev/unity/main/[Tt]emp/
+/dev/unity/main/[Oo]bj/
+/dev/unity/main/[Bb]uild/
+/dev/unity/main/[Bb]uilds/
+/dev/unity/main/Assets/AssetStoreTools*
+/dev/unity/main/AssetBundles/
+/dev/unity/main/Assets/main/
+/dev/unity/main/main.CSharp.*
+/dev/unity/main/*.sln*
+/dev/unity/main/*.csproj
+/dev/unity/main/Assets/Scene/Startup.unity
+/dev/unity/main/Assets/Scene/Startup.unity.meta
+/dev/unity/main/Assets/Plugins/Android/LunarConsole
+/dev/unity/main/Assets/Plugins/Android/LunarConsole.meta
