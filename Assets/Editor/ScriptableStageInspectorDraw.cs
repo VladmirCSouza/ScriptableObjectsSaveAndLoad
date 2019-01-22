@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using UnityEngine.TestTools.Utils;
 
 [CustomEditor(typeof(ScriptableStage))]
 public class ScriptableStageInspectorDraw : Editor {
@@ -44,13 +45,16 @@ public class ScriptableStageInspectorDraw : Editor {
     private void DrawInspector()
     {
         SerializedProperty col = serializedObject.FindProperty("stageMatrix").FindPropertyRelative("cols");
-
+        
+        Debug.Log("col.arraySize: " + col.arraySize);
         for (int i = 0; i < col.arraySize; i++)
         {
             SerializedProperty row = col.GetArrayElementAtIndex(i).FindPropertyRelative("rows");
 
-            if (col.arraySize != row.arraySize)
-                col.arraySize = row.arraySize;
+            Debug.Log("for row.arraySize: " + i +  " | " +  row.arraySize);
+
+            //            if (col.arraySize != row.arraySize)
+            //                col.arraySize = row.arraySize;
 
             //Get the selected object
             ScriptableStage obj = (ScriptableStage)target;

@@ -7,6 +7,8 @@ public class ScriptableStage : ScriptableObject
 
     public string Name { get => name; set => name = value; }
 
+    public void SetDimension(int width, int height) => stageMatrix.SetDimension(width, height);
+  
     public void SetMatrixValue(int col, int row, int value = 0)
     {
         if (stageMatrix.cols == null)

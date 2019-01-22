@@ -206,6 +206,7 @@ public class StageCreation : EditorWindow {
     {
         string fullPath = string.Concat(filePath, stageName, ".asset");
         ScriptableStage newStage = ScriptableObject.CreateInstance(typeof(ScriptableStage)) as ScriptableStage;
+        newStage.SetDimension(stageWidth, stageHeight);
 
         for (int i = 0; i < stageHeight; i++)
         {
