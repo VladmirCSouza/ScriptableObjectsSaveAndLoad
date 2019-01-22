@@ -22,7 +22,7 @@ public class StageCreation : EditorWindow {
     private string stageName = "New Stage";
     private string stageWidthLabel = "Width";
     private string stageHeightLabel = "Height";
-    private string filePath = "Assets/Stages/";
+    private string filePath = "Assets/Resources/Stages/";
 
     private bool setMap;
     private bool usePreviousSetup;
